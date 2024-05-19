@@ -42,7 +42,7 @@ public class Bank {
     public Account createAccount(String name, double initialBalance) {
         Account account = new Account(UUID.randomUUID().toString(), name, initialBalance);
         accounts.add(account);
-        saveAccount(account); // Save to H2 Database
+        saveAccount(account); 
         return account;
     }
 
@@ -124,7 +124,7 @@ public class Bank {
             pstmt.setDouble(3, account.getBalance());
             pstmt.executeUpdate();
         } catch (SQLException e) {
-            // Handle SQLException appropriately
+           
             System.err.println("Error saving account: " + e.getMessage());
         }
     }
@@ -140,7 +140,7 @@ public class Bank {
             pstmt.setDouble(5, transaction.getFee());
             pstmt.executeUpdate();
         } catch (SQLException e) {
-            // Handle SQLException appropriately
+
             System.err.println("Error saving transaction: " + e.getMessage());
         }
     }
